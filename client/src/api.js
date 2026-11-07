@@ -8,7 +8,7 @@ export class ApiError extends Error {
 }
 
 async function request(method, url, body) {
-  const res = await fetch(`/api${url}`, {
+  const res = await fetch(`api${url}`, {
     method,
     credentials: 'same-origin',
     headers: body !== undefined ? { 'Content-Type': 'application/json' } : undefined,
@@ -16,7 +16,7 @@ async function request(method, url, body) {
   });
   const data = await res.json().catch(() => null);
   if (res.status === 401 && !url.startsWith('/auth/')) {
-    window.location.assign('/login');
+    window.location.assign('#/login');
   }
   if (!res.ok) throw new ApiError(res.status, data?.error || res.statusText);
   return data;

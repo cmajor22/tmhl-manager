@@ -27,7 +27,7 @@ export default function ContactForm() {
       <table>
         <tbody>
           <tr>
-            <td><img src="/townLogo.jpg" alt="Town logo" /></td>
+            <td><img src="townLogo.jpg" alt="Town logo" /></td>
             <td style={{ fontSize: 20, fontWeight: 'bold', textAlign: 'center', verticalAlign: 'bottom', paddingLeft: 24 }}>
               Contact Tracing Information Collection
             </td>
