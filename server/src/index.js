@@ -25,6 +25,12 @@ app.use(cookieSession({
   maxAge: 12 * 60 * 60 * 1000,
 }));
 
+// API responses are per-session; never let browsers or proxies cache them
+app.use('/api', (req, res, next) => {
+  res.set('Cache-Control', 'no-store');
+  next();
+});
+
 app.use('/api/auth', authRouter);
 app.use('/api/public', publicRouter);
 app.use('/api', apiRouter);
